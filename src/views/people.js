@@ -1,5 +1,6 @@
 import React from "react"
 import PeopleCard from "../components/people-card"
+import EllenBassImage from "../images/ellen-bass-photo.jpg"
 
 export default function People() {
   return (
@@ -9,33 +10,33 @@ export default function People() {
       </div>
       <div class="flex flex-row flex-wrap gap-12 justify-center">
         <PeopleCard
-          profileImage="http://cci.drexel.edu/faculty/ebass/images/photo.jpg"
+          profileImage={EllenBassImage}
           professorName="Ellen Bass"
           professorDescription="Proffessor, Drexel University"
           description="Short description for person. Should not be too long... maybe just a basic description on how this person worked with Ellen Bass."
           mailLink="mailto:fakeemail@example.com"
           websiteLink="https://drexel.edu"
-          twitterLink="https://twitter.com">
-        </PeopleCard>
+          twitterLink="https://twitter.com"
+        ></PeopleCard>
         <PeopleCard
-          profileImage="http://cci.drexel.edu/faculty/ebass/images/photo.jpg"
+          profileImage={EllenBassImage}
           professorName="Ellen Bass"
           professorDescription="Proffessor, Drexel University"
           description="Short description for person. Should not be too long... maybe just a basic description on how this person worked with Ellen Bass."
           mailLink="mailto:fakeemail@example.com"
           websiteLink="https://drexel.edu"
-          twitterLink="https://twitter.com">
-        </PeopleCard>
+          twitterLink="https://twitter.com"
+        ></PeopleCard>
         <PeopleCard
-          profileImage="http://cci.drexel.edu/faculty/ebass/images/photo.jpg"
+          profileImage={EllenBassImage}
           professorName="Ellen Bass"
           professorDescription="Proffessor, Drexel University"
           description="Short description for person. Should not be too long... maybe just a basic description on how this person worked with Ellen Bass."
           mailLink="mailto:fakeemail@example.com"
           websiteLink="https://drexel.edu"
-          twitterLink="https://twitter.com">
-        </PeopleCard>
+          twitterLink="https://twitter.com"
+        ></PeopleCard>
       </div>
-     </div>
-  );
+    </div>
+  )
 }

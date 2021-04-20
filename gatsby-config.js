@@ -6,12 +6,14 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: "/coop-tmp-site",
   siteMetadata: {
     title: `Ellen Bass - Drexel University`,
-    description: `TODO`
+    description: `TODO`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-fontawesome-css'
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-fontawesome-css",
+    "gatsby-plugin-postcss",
   ],
 }

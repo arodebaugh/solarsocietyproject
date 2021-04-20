@@ -24,9 +24,19 @@ Eventually wouldn't be a bad idea to make video tutorials.
 4. Run `gatsby build` inside the main directory. The website will generate in /public move those files wherever your site will be hosted.
 5. OPTIONAL To run a live updating test at any time run `gatsby develop` inside the main directory.
 
-More detailed tutorial (ignore the part where you generate a new project): https://www.gatsbyjs.com/docs/tutorial/part-zero/ 
+More detailed tutorial (ignore the part where you generate a new project): https://www.gatsbyjs.com/docs/tutorial/part-zero/
 
 Official Gatsby deploy guide: https://www.gatsbyjs.com/docs/deploying-and-hosting/
+
+## Pages
+
+### Index
+
+Located: src/components/index.js
+
+### 404
+
+Located: src/components/404.js
 
 ## Components
 
@@ -58,7 +68,7 @@ Located: src/components/profile.js
 
 ```
 import Profile from "../components/profile"
-<Profile 
+<Profile
   profileImage
   professorName
   occupation
@@ -66,13 +76,14 @@ import Profile from "../components/profile"
   collegeLink
   addressLink
   addressLine1
-  addressLine2 
+  addressLine2
   office
   phoneLink
   phone
   fax
   emailLink
-  email>
+  email
+  pdfLink>
 </Profile>
 ```
 
@@ -117,7 +128,7 @@ handle[view name one word]Click() {
       header = (
         // See step 6 for what to put here
       );
-      
+
       body = <[view name one word]></[view name one word]>
     }
 ```

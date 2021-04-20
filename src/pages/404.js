@@ -2,8 +2,6 @@ import React from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Profile from "../components/profile"
-import Information from "../components/information"
-import EllenBassImage from "../images/ellen-bass-photo.jpg"
 import { Helmet } from "react-helmet"
 
 export default function Home() {
@@ -22,7 +20,7 @@ export default function Home() {
       </Helmet>
       <Header></Header>
       <Profile
-        profileImage={EllenBassImage}
+        profileImage="http://cci.drexel.edu/faculty/ebass/images/photo.jpg"
         professorName="Ellen Bass"
         occupation="Professor"
         college="College of Computing & Informatics"
@@ -38,9 +36,18 @@ export default function Home() {
         email="Ellen.J.Bass@drexel.edu"
         pdfLink="/Bass,EllenJCV.pdf"
       ></Profile>
-      <Information></Information>
       <br />
-      <Footer></Footer>
+      <div class="ml-4">
+        <h1 class="text-3xl">404: Page not found</h1>
+        <br />
+        <a href="/" className="hover:underline">
+          Return to home
+        </a>
+      </div>
+      <br />
+      <div class="absolute bottom-0 w-full">
+        <Footer></Footer>
+      </div>
     </div>
   )
 }
