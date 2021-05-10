@@ -40,7 +40,7 @@ export default function Home() {
       <div class="ml-4">
         <h1 class="text-3xl">404: Page not found</h1>
         <br />
-        <a href="/" className="hover:underline">
+        <a href="/coop-tmp-site" className="hover:underline">
           Return to home
         </a>
       </div>

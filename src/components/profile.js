@@ -1,10 +1,10 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
+import { faFilePdf, faNewspaper } from "@fortawesome/free-solid-svg-icons"
 export default function Profile(props) {
   return (
     <div class="w-full flex justify-center bg-gray-200">
-      <div class="flex flex-row py-7 w-8/12 md:w-full sm:w-full justify-center">
+      <div class="flex flex-row py-7 w-full justify-center px-6">
         <div class="grid grid-cols-3 gap-8">
           <div>
             <img
@@ -55,6 +55,15 @@ export default function Profile(props) {
                 rel="noreferrer"
               >
                 <FontAwesomeIcon icon={faFilePdf} /> Download the PDF
+              </a>
+              <br />
+              <a
+                class="hover:underline"
+                href={props.newsLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faNewspaper} /> View on Drexel CI News
               </a>
             </p>
           </div>

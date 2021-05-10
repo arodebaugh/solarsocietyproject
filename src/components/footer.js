@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div class="w-full">
       <div class="flex flex-row py-4 px-7 bg-drexel-blue w-full border-t-4 border-drexel-yellow">
-        <div class="float-left flex justify-center items-center">
+        <div class="float-left flex justify-center items-center mr-4">
           <p class="text-white">
             <a
               class="hover:underline"
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
         <div class="flex justify-center items-center ml-auto">
           <img
-            class="h-16 w-auto"
+            class="w-16 h-auto"
             src={drexelDragonLogo}
             alt="Drexel Dragon Logo"
           ></img>

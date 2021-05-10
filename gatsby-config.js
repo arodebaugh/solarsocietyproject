@@ -6,9 +6,9 @@
 
 module.exports = {
   /* Your site config here */
-  pathPrefix: "/coop-tmp-site",
+  pathPrefix: "/solarsocietyproject",
   siteMetadata: {
-    title: `Ellen Bass - Drexel University`,
+    title: `Solar Society Project`,
     description: `TODO`,
   },
   plugins: [

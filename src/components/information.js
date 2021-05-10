@@ -1,38 +1,32 @@
 import React from "react"
-import ResearchInterests from "../views/research-interests"
-import Classes from "../views/classes"
-import People from "../views/people"
-import Projects from "../views/projects"
-import Publications from "../views/publications"
+import MissionStatement from "../views/mission-statement"
+import ThreedPrint from "../views/3d-print"
+import ShoppingList from "../views/shopping-list"
+import Schematic from "../views/schematic"
 
 export default class Information extends React.Component {
   constructor(props) {
     super(props)
-    this.handleResearchInterestClick = this.handleResearchInterestClick.bind(
-      this
-    )
-    this.handleClassesClick = this.handleClassesClick.bind(this)
-    this.handlePeopleClick = this.handlePeopleClick.bind(this)
-    this.handleProjectsClick = this.handleProjectsClick.bind(this)
-    this.handlePublicationsClick = this.handlePublicationsClick.bind(this)
-    this.state = { page: "research-interests" }
+    this.handleMissionStatementClick = this.handleMissionStatementClick.bind(this)
+    this.handle3dPrintClick = this.handle3dPrintClick.bind(this)
+    this.handleShoppingListClick = this.handleShoppingListClick.bind(this)
+    this.handleSchematicClick = this.handleSchematicClick.bind(this)
+    this.state = { page: "mission-statement" }
   }
 
   componentDidMount() {
     const params = new URLSearchParams(window.location.search)
     const page = params.get("page")
-    if (page === "research-interests") {
-      this.setState({ page: "research-interests" })
-    } else if (page === "classes") {
-      this.setState({ page: "classes" })
-    } else if (page === "people") {
-      this.setState({ page: "people" })
-    } else if (page === "projects") {
-      this.setState({ page: "projects" })
-    } else if (page === "publications") {
-      this.setState({ page: "publications" })
+    if (page === "mission-statement") {
+      this.setState({ page: "mission-statement" })
+    } else if (page === "3d-print") {
+      this.setState({ page: "3d-print" })
+    } else if (page === "schematic") {
+      this.setState({ page: "schematic" })
     }
   }
+
+  // mission statement, project overview, 3d print, schematic, shopping list
 
   setPage(page) {
     window.history.pushState(
@@ -43,205 +37,57 @@ export default class Information extends React.Component {
     this.setState({ page: page })
   }
 
-  handleResearchInterestClick() {
-    this.setPage("research-interests")
+  handleMissionStatementClick() {
+    this.setPage("mission-statement")
   }
 
-  handleClassesClick() {
-    this.setPage("classes")
+  handle3dPrintClick() {
+    this.setPage("3d-print")
   }
 
-  handlePeopleClick() {
-    this.setPage("people")
+  handleSchematicClick() {
+    this.setPage("schematic")
   }
 
-  handleProjectsClick() {
-    this.setPage("projects")
-  }
-
-  handlePublicationsClick() {
-    this.setPage("publications")
+  handleShoppingListClick() {
+    this.setPage("shopping-list")
   }
 
   render() {
-    const page = this.state.page
-    let header
-    let body
+    const page = this.state.page;
+    let header;
+    let body;
 
-    if (page === "research-interests") {
-      header = (
-        <div class="flex flex-row justify-center mb-6">
-          <button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">
-            Research Interests
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleClassesClick}
-          >
-            Classes
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePeopleClick}
-          >
-            People
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleProjectsClick}
-          >
-            Projects
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePublicationsClick}
-          >
-            Publications
-          </button>
-        </div>
-      )
+    let missionStatement = <button class="hover:underline mx-2 text-drexel-blue focus:outline-none" onClick={this.handleMissionStatementClick}>Mission Statement</button>;
+    let threedPrint = <button class="hover:underline mx-2 text-drexel-blue focus:outline-none" onClick={this.handle3dPrintClick}>3D Print</button>;
+    let schematic = <button class="hover:underline mx-2 text-drexel-blue focus:outline-none" onClick={this.handleSchematicClick}>Schematic</button>;
+    let shoppingList = <button class="hover:underline mx-2 text-drexel-blue focus:outline-none" onClick={this.handleShoppingListClick}>Shopping List</button>;
 
-      body = <ResearchInterests></ResearchInterests>
-    } else if (page === "classes") {
-      header = (
-        <div class="flex flex-row justify-center mb-6">
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleResearchInterestClick}
-          >
-            Research Interests
-          </button>
-          <button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">
-            Classes
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePeopleClick}
-          >
-            People
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleProjectsClick}
-          >
-            Projects
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePublicationsClick}
-          >
-            Publications
-          </button>
-        </div>
-      )
-
-      body = <Classes></Classes>
-    } else if (page === "people") {
-      header = (
-        <div class="flex flex-row justify-center mb-6">
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleResearchInterestClick}
-          >
-            Research Interests
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleClassesClick}
-          >
-            Classes
-          </button>
-          <button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">
-            People
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleProjectsClick}
-          >
-            Projects
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePublicationsClick}
-          >
-            Publications
-          </button>
-        </div>
-      )
-
-      body = <People></People>
-    } else if (page === "projects") {
-      header = (
-        <div class="flex flex-row justify-center mb-6">
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleResearchInterestClick}
-          >
-            Research Interests
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleClassesClick}
-          >
-            Classes
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePeopleClick}
-          >
-            People
-          </button>
-          <button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">
-            Projects
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePublicationsClick}
-          >
-            Publications
-          </button>
-        </div>
-      )
-
-      body = <Projects></Projects>
-    } else if (page === "publications") {
-      header = (
-        <div class="flex flex-row justify-center mb-6">
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleResearchInterestClick}
-          >
-            Research Interests
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleClassesClick}
-          >
-            Classes
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handlePeopleClick}
-          >
-            People
-          </button>
-          <button
-            class="hover:underline mx-4 text-drexel-blue focus:outline-none"
-            onClick={this.handleProjectsClick}
-          >
-            Projects
-          </button>
-          <button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">
-            Publications
-          </button>
-        </div>
-      )
-
-      body = <Publications></Publications>
+    if (page === "mission-statement") {
+      missionStatement = <button class="border-b-4 border-drexel-yellow mx-2 text-drexel-blue focus:outline-none">Mission Statement</button>;
+      body = <MissionStatement></MissionStatement>
+    } else if (page === "3d-print") {
+      threedPrint = <button class="border-b-4 border-drexel-yellow mx-2 text-drexel-blue focus:outline-none">3D Print</button>;
+      body = <ThreedPrint></ThreedPrint>
+    } else if (page === "schematic") {
+      schematic = <button class="border-b-4 border-drexel-yellow mx-2 text-drexel-blue focus:outline-none">Schematic</button>;
+      body = <Schematic></Schematic>
+    } else if (page === "shopping-list") {
+      shoppingList = <button class="border-b-4 border-drexel-yellow mx-2 text-drexel-blue focus:outline-none">Shopping List</button>;
+      body = <ShoppingList></ShoppingList>
     }
 
+    header = (
+      <div class="flex flex-row justify-center mb-6 max-w-full px-2">
+        { missionStatement }
+        { threedPrint }
+        { schematic }
+        { shoppingList }
+      </div>
+    )
+
     return (
-      <div class="w-full flex justify-center">
+      <div class="w-full flex justify-center bg-gray-100 h-full">
         <div class="py-7">
           {header}
           {body}

@@ -1,4 +1,4 @@
-# Documentation for CCI Site template
+# Documentation for CCI Site template 1
 
 Eventually wouldn't be a bad idea to make video tutorials.
 
@@ -83,7 +83,8 @@ import Profile from "../components/profile"
   fax
   emailLink
   email
-  pdfLink>
+  pdfLink
+  newsLink>
 </Profile>
 ```
 
@@ -101,52 +102,40 @@ import Information from "../components/information"
 Displays page slider for professor information. Includes a header with the ability to change views (that saves as a parameter in URL for easy sharing) and the content areas.
 Each view is represented in a seperate component file.
 
-Creating a new view:
+Creating a new view (where there are brackets replace with text):
 
-1. Create a seperate component with it's own file. Import that component in information.js
-2. In the `Constructer` make a new line abouve the `this.state` line in this format `this.handle[view name one word]Click = this.handle[view name one word]Click.bind(this);`.
-3. In the function `componentDidMount` add this `else if` statement in the chain of `else if`s:
+For the "view name one word:... camal case is suggested... for example if the view name is about us name it aboutUs/AboutUs.
+
+1. Create a React js file in `src/views` and import into information.js.
+2. In information.js `constructor` add `this.handle[view name one word]Click = this.handle[view name one word]Click.bind(this)`.
+3. In `componentDidMount` add:
 
 ```
 else if (page === "[view name one word]") {
-  this.setState({page: "[view name one word]"});
+  this.setState({ page: "[view name one word]" })
 }
 ```
 
-4. After the `setPage` function create a new function in this format:
+4. Add a function `handle[view name one word]Click`:
 
 ```
-handle[view name one word]Click() {
-    this.setPage("[view name one word]");
+ handle[view name one word]Click() {
+    this.setPage("[view name one word]")
   }
 ```
 
-5. In the function `render` create an `else if` statement in the chain of `else if`s.
+5. In the function `render` add `let [view name one word] = <button class="hover:underline mx-2 text-drexel-blue focus:outline-none" onClick={this.handleview name one word]Click}>[view name]</button>;`.
+
+6. Then add a clicked version in the chain of if and else ifs:
 
 ```
- else if (page === "[view name one word]") {
-      header = (
-        // See step 6 for what to put here
-      );
-
-      body = <[view name one word]></[view name one word]>
-    }
+else if (page === "[view name one word]") {
+  [view name one word] = <button class="border-b-4 border-drexel-yellow mx-2 text-drexel-blue focus:outline-none">[view name]</button>;
+  body = <[view name one word]></[view name one word]>
+}
 ```
 
-6. This part for maaking the header is based on all your views and you will need to change this based on all views:
-
-A selected header button looks like this:
-
-`<button class="border-b-4 border-drexel-yellow mx-4 text-drexel-blue focus:outline-none">[view name]</button>`
-
-An unselected header button looks like this:
-
-`<button class="hover:underline mx-4 text-drexel-blue focus:outline-none" onClick={this.handle[view name one word]Click}>[view name]</button>`
-
-Make sure for every view that is not the view you are creating you are butting an unselected header button in the same place. For the view make sure it has the same
-Header code but with the selected header button in it.
-
-Todo: Make this a little more clear or a visual representastion.
+7. Finally, in the `header` variable add `{ [view name one word] }` in the order where you want the nav button to show.
 
 ### PeopleCard
 
@@ -161,11 +150,28 @@ import PeopleCard from "../components/people-card"
   description
   mailLink
   websiteLink
-  twitterLink>
+  twitterLink
+  linkedInLink>
 </PeopleCard>
 ```
 
-This is a responsive card for displaying people and basic information for them.
+This is a responsive card for displaying people and basic information for them. All link variables are optional... if the variable is not used the link will not show.
+
+### Publication View
+
+Located: src/components/publication-view.js
+
+```
+import PublicationsView from "../components/publication-view"
+<PublicationsView
+  citation
+  pdfLink
+  sourceLink
+  source>
+</PublicationsView>
+```
+
+This is a simple view for showing publications with links to PDF downloads/more information from publisher.
 
 ## Views
 
